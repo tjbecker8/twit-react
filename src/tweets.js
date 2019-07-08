@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Tweet from './tweet'
-
+import './tweets.css';
 
 class Tweets extends Component {
 	//data

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './right-sidebar.css';
 
 
 class Rightsidebar extends Component {
