@@ -1,0 +1,12 @@
+#header {
+	background-color: red;
+	display: grid;
+	grid-template-rows: 38px 317px 60px;
+}
+
+#coverphoto {
+background-image: url(https://res.cloudinary.com/dg3lfqtcg/image/upload/v1561701689/abhostel_dpdoym.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+
+}
