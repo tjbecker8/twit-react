@@ -16,7 +16,7 @@ class Rightsidebar extends Component {
 					this.setState({
 						hashtags: res.data
 					})
-			this.selectChannel(res.data[0]._id)
+			this.selectHashtag(res.data[0]._id)
 			}).catch((err)=> {
 				console.log('err', err);
 			})
@@ -42,17 +42,18 @@ class Rightsidebar extends Component {
 	render() {
 		return (
 			<div id="right-sidebar" className="col">
-			
+
 				<div id="trending">
 					<div className="card" >
 
 						<div className="card-body">
 						<h5 className="card-title">Worldwide Trends</h5>
-						<ul>
-
-							<Trends />
-
-
+						<ul className="list-unstyled">
+							{
+							this.state.hashtags.map((c) => {
+							return <Trends hashtag={c} key={c._id} selectHashtag={this.selectHashtag} />
+							})
+							}
 						</ul>
 					</div>
 
