@@ -11,11 +11,9 @@ class Maincontent extends Component {
 	//functions
 	getTweets = (id) => {
 			console.log('id', id);
-			console.log('state', this.state);
 			this.setState({
 				hashtag: id
 			}, () => {
-
 			})
 
 		}

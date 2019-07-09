@@ -16,7 +16,7 @@ class Tweets extends Component {
 			axios.get('http://localhost:4000/api/tweets').then((res)=> {
 				// console.log(res.data);
 				this.setState({
-					tweetss: res.data
+					tweets: res.data
 				})
 			}).catch((err)=> {
 				console.log('err', err);
@@ -25,7 +25,7 @@ class Tweets extends Component {
 
 		componentWillReceiveProps(props) {
 			this.setState({
-				hashtag: props.channel
+				hashtag: props.hashtag
 			})
 			axios.get(`http://localhost:4000/api/tweets?hashtag=${props.hashtag}`).then((res)=> {
 				this.setState({
@@ -59,7 +59,7 @@ class Tweets extends Component {
 	render() {
 		return (
 			<div id="tweets" className="col-6">
-				<Newtweet createtweet={this.createtweet} />
+				<Newtweet createTweet={this.createTweet} />
 				{
 						this.state.tweets.map((m)=> {
 							return <Tweet tweet={m} key={m._id} />
