@@ -1,14 +1,18 @@
 import React, {Component} from 'react';
-
+import moment from 'moment'
 
 
 class Tweet extends Component {
 	//data
 	state = {
-
+		message: this.props.message
 	}
-	//functions
-
+	functions
+	componentWillMount() {
+			let message = this.state.message
+			message.date = moment(message.date).format('D MMM YYYY - h:mma')
+			this.setState({message})
+		}
 
 
 
@@ -24,9 +28,9 @@ class Tweet extends Component {
 					</div>
 					<div className="col-md-8">
 						<div className="card-body">
-							<h5 className="card-title">Card title</h5>
-							<p className="card-text">This is a wider card  supporting text below as a natural lead to additional content is a little bit longer.</p>
-							<p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+							<h5 className="card-title">{this.props.message.author.name}</h5>
+							<p className="card-text">{this.props.message.body}</p>
+							<p className="card-text"><small className="text-muted">{this.props.message.date}</small></p>
 						</div>
 					</div>
 				</div>
