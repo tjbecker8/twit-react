@@ -14,7 +14,7 @@ class Newtweet extends Component {
 			})
 		}
 
-		clearMessage = () => {
+		clearTweet = () => {
 			this.setState({
 				text: ''
 			})
@@ -29,19 +29,18 @@ class Newtweet extends Component {
 	render() {
 		return (
 			<div id="new-messages">
-							<form onSubmit= {(e) => {
-									this.props.createMessage(e, this.state.text);
-									this.clearMessage()}
-								}>
-								<div className="card mb-3" >
-									<div className="form-group">
-										
-										<textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-										<button className="btn btn-success" type="submit" >Submit</button>
-									</div>
-								</div>
-							</form>
+				<form onSubmit= {(e) => {
+						this.props.createTweet(e, this.state.text);
+						this.clearTweet()}
+					}>
+					<div className="input-group mb-3">
+						<input type="text" className="form-control" placeholder="New Message" value={this.state.text} onChange={(e) => this.changeText(e)} />
+						<div className="input-group-append">
+							<button className="btn btn-success" type="submit" >Send</button>
 						</div>
+					</div>
+				</form>
+			</div>
 		)
 	}
 }

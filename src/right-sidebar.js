@@ -32,7 +32,7 @@ class Rightsidebar extends Component {
 			this.setState({hashtags})
 			// console.log(this.state.channels);
 
-			// this.props.getMessages(id)
+			this.props.getTweets(id)
 		}
 
 

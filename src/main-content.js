@@ -6,10 +6,19 @@ import './content.css';
 class Maincontent extends Component {
 	//data
 	state = {
-
+		hashtag: ''
 	}
 	//functions
+	getTweets = (id) => {
+			console.log('id', id);
+			console.log('state', this.state);
+			this.setState({
+				hashtag: id
+			}, () => {
 
+			})
+
+		}
 
 
 
@@ -20,8 +29,8 @@ class Maincontent extends Component {
 			<div id="main-content" className="container-fluid">
 				<div className="row">
 					<Leftsidebar />
-					<Tweets />
-					<Rightsidebar />
+					<Tweets hashtag={this.state.hashtag} />
+					<Rightsidebar getTweets={this.getTweets} />
 				</div>
 			</div>
 		)

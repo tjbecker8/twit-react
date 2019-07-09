@@ -6,8 +6,8 @@ import axios from 'axios'
 class Tweets extends Component {
 	//data
 	state = {
-		messages: [],
-		channel: ''
+		tweets: [],
+		hashtag: ''
 	}
 	//functions
 
@@ -16,7 +16,7 @@ class Tweets extends Component {
 			axios.get('http://localhost:4000/api/tweets').then((res)=> {
 				// console.log(res.data);
 				this.setState({
-					messages: res.data
+					tweetss: res.data
 				})
 			}).catch((err)=> {
 				console.log('err', err);
@@ -25,30 +25,30 @@ class Tweets extends Component {
 
 		componentWillReceiveProps(props) {
 			this.setState({
-				channel: props.channel
+				hashtag: props.channel
 			})
-			axios.get(`http://localhost:4000/api/tweets?hashtag=${props.channel}`).then((res)=> {
+			axios.get(`http://localhost:4000/api/tweets?hashtag=${props.hashtag}`).then((res)=> {
 				this.setState({
-					messages: res.data
+					tweets: res.data
 				})
 			}).catch((err)=> {
 				console.log('err', err);
 			})
 		}
 
-		createMessage = (e, text) => {
+		createTweet = (e, text) => {
 				e.preventDefault()
-					let message = {
+					let tweet = {
 						body: text,
-						channel: this.state.channel,
+						hashtag: this.state.hashtag,
 					}
-					axios.post('http://localhost:4000/api/tweets', message, {headers: {
+					axios.post('http://localhost:4000/api/tweets', tweet, {headers: {
 						Authorization: `Bearer ${localStorage.getItem('token')}`
 					}}
 				).then((res)=> {
-						let messages = this.state.messages
-						messages.push(res.data)
-						this.setState({messages})
+						let tweets = this.state.tweets
+						tweets.push(res.data)
+						this.setState({tweets})
 					}).catch((err)=> {
 						console.log('err', err);
 					})
@@ -59,10 +59,10 @@ class Tweets extends Component {
 	render() {
 		return (
 			<div id="tweets" className="col-6">
-				<Newtweet createMessage={this.createMessage} />
+				<Newtweet createtweet={this.createtweet} />
 				{
-						this.state.messages.map((m)=> {
-							return <Tweet message={m} key={m._id} />
+						this.state.tweets.map((m)=> {
+							return <Tweet tweet={m} key={m._id} />
 						})
 					}
 

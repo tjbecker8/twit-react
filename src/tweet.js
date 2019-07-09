@@ -5,16 +5,16 @@ import moment from 'moment'
 class Tweet extends Component {
 	//data
 	state = {
-		message: this.props.message
+		tweet: this.props.tweet
 	}
 
 
 	functions
 	componentWillMount() {
 		console.log('<><><', this.state);
-			let message = this.state.message
-			message.date = moment(message.date).format('D MMM YYYY - h:mma')
-			this.setState({message})
+			let tweet = this.state.tweet
+			tweet.date = moment(tweet.date).format('D MMM YYYY - h:mma')
+			this.setState({tweet})
 		}
 
 
@@ -31,9 +31,9 @@ class Tweet extends Component {
 					</div>
 					<div className="col-md-8">
 						<div className="card-body">
-							<h5 className="card-title">{this.props.message.author.name}</h5>
-							<p className="card-text">{this.props.message.body}</p>
-							<p className="card-text"><small className="text-muted">{this.props.message.date}</small></p>
+							<h5 className="card-title">{this.props.tweet.author.name}</h5>
+							<p className="card-text">{this.props.tweet.body}</p>
+							<p className="card-text"><small className="text-muted">{this.props.tweet.date}</small></p>
 						</div>
 					</div>
 				</div>
