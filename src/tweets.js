@@ -7,12 +7,11 @@ class Tweets extends Component {
 	//data
 	state = {
 		tweets: [],
-		hashtag: ''
+		hashtag: '',
 	}
 	//functions
 
 	componentWillMount() {
-
 			axios.get('http://localhost:4000/api/tweets').then((res)=> {
 				// console.log(res.data);
 				this.setState({
@@ -24,9 +23,11 @@ class Tweets extends Component {
 		}
 
 		componentWillReceiveProps(props) {
+			console.log(this.props.hashtag);
 			this.setState({
-				hashtag: props.hashtag
+				hashtag: this.props.hashtag
 			})
+
 			axios.get(`http://localhost:4000/api/tweets?hashtag=${props.hashtag}`).then((res)=> {
 				this.setState({
 					tweets: res.data

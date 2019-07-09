@@ -15,7 +15,6 @@ class Maincontent extends Component {
 				hashtag: id
 			}, () => {
 			})
-
 		}
 
 

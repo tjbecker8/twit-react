@@ -8,6 +8,7 @@ class Signup extends Component {
 		name: '',
 		email: '',
 		password: '',
+		image: ''
 	}
 
 	//functions
@@ -21,6 +22,10 @@ changeEmail = (e) => {
 
 changePassword = (e) => {
 	this.setState({password: e.target.value})
+}
+
+changeImage = (e) => {
+	this.setState({image: e.target.value})
 }
 
 signup =(e) => {
@@ -51,6 +56,9 @@ signup =(e) => {
 								</div>
 								<div className="form-group">
 									<input type="password" className="form-control" placeholder="password" value={this.state.password} onChange={(e) => this.changePassword(e)}/>
+								</div>
+								<div className="form-group">
+									<input type="text" className="form-control" placeholder="image url" value={this.state.image} onChange={(e) => this.changeImage(e)}/>
 								</div>
 								<button type="submit" className="btn btn-primary">Signup</button>
 							</form>
