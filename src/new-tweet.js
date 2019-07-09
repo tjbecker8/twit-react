@@ -34,9 +34,9 @@ class Newtweet extends Component {
 									this.clearMessage()}
 								}>
 								<div className="card mb-3" >
-									<div class="form-group">
-										<label for="exampleFormControlTextarea1">New Tweet</label>
-										<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+									<div className="form-group">
+										
+										<textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 										<button className="btn btn-success" type="submit" >Submit</button>
 									</div>
 								</div>

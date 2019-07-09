@@ -7,8 +7,11 @@ class Tweet extends Component {
 	state = {
 		message: this.props.message
 	}
+
+
 	functions
 	componentWillMount() {
+		console.log('<><><', this.state);
 			let message = this.state.message
 			message.date = moment(message.date).format('D MMM YYYY - h:mma')
 			this.setState({message})

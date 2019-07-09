@@ -24,12 +24,10 @@ class Tweets extends Component {
 		}
 
 		componentWillReceiveProps(props) {
-
 			this.setState({
 				channel: props.channel
 			})
-			axios.get(`http://localhost:4000/api/messages?hashtag=${props.channel}`).then((res)=> {
-
+			axios.get(`http://localhost:4000/api/tweets?hashtag=${props.channel}`).then((res)=> {
 				this.setState({
 					messages: res.data
 				})
