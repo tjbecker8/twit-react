@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Tweet from './tweet'
+import Newtweet from './new-tweet'
 import './tweets.css';
 
 class Tweets extends Component {
@@ -17,11 +18,7 @@ class Tweets extends Component {
 	render() {
 		return (
 			<div id="tweets" className="col-6">
-						<div className="card mb-3" >
-							<div id="tweet-head" className="card-body">
-								<h3>Tweets</h3>
-			 				</div>
-						</div>
+						<Newtweet />
 						<Tweet />
 			</div>
 		)
