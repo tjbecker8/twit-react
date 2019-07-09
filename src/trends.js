@@ -5,7 +5,7 @@ import './right-sidebar.css';
 class Trends extends Component {
 	//data
 	state = {
-
+		hashtag: this.props.hashtag
 	}
 	//functions
 
@@ -16,16 +16,7 @@ class Trends extends Component {
 	//render
 	render() {
 		return (
-			<div className="card-body">
-			<h5 className="card-title">Worldwide Trends</h5>
-			<ul>
-				<li> <a href="#">trend</a> </li>
-				<li> <a href="#">trend</a> </li>
-				<li> <a href="#">trend</a> </li>
-				<li> <a href="#">trend</a> </li>
-				<li> <a href="#">trend</a> </li>
-			</ul>
-		</div>
+			<li onClick={()=> this.props.selectHashtag(this.state.hashtag._id)} className={ this.state.hashtag.active ? 'active' : '' }># {this.state.hashtag.hashtag}</li>
 		)
 	}
 }
