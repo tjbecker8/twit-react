@@ -29,8 +29,8 @@ class Newtweet extends Component {
 						this.setState({
 							hashtags: res.data
 						})
-
-				// this.selectHashtag(res.data[0]._id)
+						console.log('this', this.state.hashtags);
+			this.props.hashes(this.state.hashtags)
 				}).catch((err)=> {
 					console.log('err', err);
 				})
@@ -46,7 +46,7 @@ class Newtweet extends Component {
 			//
 			// 	this.props.getTweets(id)
 			// }
-
+		
 
 
 

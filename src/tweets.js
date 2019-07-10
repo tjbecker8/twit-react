@@ -8,7 +8,8 @@ class Tweets extends Component {
 	state = {
 		tweets: [],
 		hashtag: '',
-		hashtags: ''
+		hashtags: '',
+
 	}
 	//functions
 	getTweets = (id) => {
@@ -28,7 +29,11 @@ class Tweets extends Component {
 		}
 
 
-
+hashes =(h)=> {
+	this.setState({
+		hashtags: h
+	})
+}
 
 
 
@@ -92,11 +97,11 @@ class Tweets extends Component {
 	render() {
 		return (
 			<div id="tweets" className="col-6">
-				<Newtweet selectHashtag={this.selectHashtag} getTweets={this.getTweets} createTweet={this.createTweet} />
+				<Newtweet hashes={this.hashes} selectHashtag={this.selectHashtag} getTweets={this.getTweets} createTweet={this.createTweet} />
 				{
 						this.state.tweets.map((m)=> {
 							console.log('m', m.hashtag.name);
-							return <Tweet selectHashtag={this.selectHashtag} tweet={m} key={m._id} hashtag={m.hashtag.name} />
+							return <Tweet hashtags={this.state.hashtags} selectHashtag={this.selectHashtag} tweet={m} key={m._id} hashtag={m.hashtag.name} />
 						})
 					}
 

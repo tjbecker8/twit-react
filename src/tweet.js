@@ -6,7 +6,8 @@ class Tweet extends Component {
 	//data
 	state = {
 		tweet: this.props.tweet,
-		hashtag: this.props.hashtag
+		hashtag: this.props.hashtag,
+		hashtags: this.props.hashtags
 	}
 
 
@@ -33,7 +34,7 @@ class Tweet extends Component {
 						<div id="info" className="card-body">
 							<h5 className="card-title">{this.props.tweet.author.name}</h5>
 							<p className="card-text">{this.props.tweet.body}</p>
-							<p className="card-text hash" onClick={()=> this.props.selectHashtag(this.state.hashtag._id)} className={ this.state.hashtag.active ? 'active' : '' } > #{this.props.hashtag}</p>
+							<p className="card-text hash" onClick={()=> this.props.selectHashtag(this.props.hashtags._id)} className={ this.props.hashtags.active ? 'active' : '' } > #{this.props.hashtag}</p>
 							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small></p>
 						</div>
 					</div>
