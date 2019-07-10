@@ -7,7 +7,7 @@ class Tweets extends Component {
 	//data
 	state = {
 		tweets: [],
-		hashtag: this.props.hashtag,
+		hashtag: '',
 	}
 	//functions
 
@@ -23,12 +23,12 @@ class Tweets extends Component {
 		}
 
 		componentWillReceiveProps(props) {
-			console.log(this.props.hashtag);
+			console.log(props.hashtag);
 			this.setState({
-				hashtag: this.props.hashtag
+				hashtag: props.hashtag
 			})
-
 			axios.get(`http://localhost:4000/api/tweets?hashtag=${props.hashtag}`).then((res)=> {
+
 				this.setState({
 					tweets: res.data
 				})
@@ -63,7 +63,7 @@ class Tweets extends Component {
 				<Newtweet createTweet={this.createTweet} />
 				{
 						this.state.tweets.map((m)=> {
-							return <Tweet hashtag={this.state.hashtag} tweet={m} key={m._id} />
+							return <Tweet tweet={m} key={m._id} />
 						})
 					}
 

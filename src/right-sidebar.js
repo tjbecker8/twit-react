@@ -11,7 +11,6 @@ class Rightsidebar extends Component {
 	//functions
 	componentDidMount() {
 			axios.get(`http://localhost:4000/api/hashtag`).then((res)=> {
-				// console.log('resss', res.data[0]._id);
 					res.data[0].active = true
 					this.setState({
 						hashtags: res.data
@@ -24,9 +23,7 @@ class Rightsidebar extends Component {
 
 		selectHashtag = (id) => {
 			let hashtags = this.state.hashtags
-			hashtags.map((c)=> c.active = false) //add the active property to each element
-			// channels.map((c) => delete c.active) //delete a property
-			// channels.forEach((c) => delete c.active) //this works too to remove active property
+			hashtags.map((c)=> c.active = false) 
 			let hashtag = hashtags.find((c) => c._id === id)
 			hashtag.active = true
 			this.setState({hashtags})
