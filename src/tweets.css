@@ -7,3 +7,13 @@
 	padding-left: 20px;
 	padding-right: 20px;
 }
+
+#hash li:hover {
+	background: black;
+	color: red;
+}
+
+#hash li.active {
+	background: black;
+	color: red;
+}

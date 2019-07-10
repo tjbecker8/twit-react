@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './right-sidebar.css';
+import './tweets.css';
 
 
 class Trendsnewtweet extends Component {
