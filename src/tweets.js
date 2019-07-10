@@ -7,7 +7,7 @@ class Tweets extends Component {
 	//data
 	state = {
 		tweets: [],
-		hashtag: '',
+		hashtag: this.props.hashtag,
 	}
 	//functions
 
@@ -63,7 +63,7 @@ class Tweets extends Component {
 				<Newtweet createTweet={this.createTweet} />
 				{
 						this.state.tweets.map((m)=> {
-							return <Tweet tweet={m} key={m._id} />
+							return <Tweet hashtag={this.state.hashtag} tweet={m} key={m._id} />
 						})
 					}
 

@@ -14,6 +14,7 @@ class Maincontent extends Component {
 			this.setState({
 				hashtag: id
 			}, () => {
+				console.log('kkk', this.state.hashtag);
 			})
 		}
 

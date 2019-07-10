@@ -33,7 +33,7 @@ class Tweet extends Component {
 						<div className="card-body">
 							<h5 className="card-title">{this.props.tweet.author.name}</h5>
 							<p className="card-text">{this.props.tweet.body}</p>
-							<p className="card-text">{this.props.tweet.hashtag}</p>
+							<p className="card-text">{this.props.hashtag}yo</p>
 							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small></p>
 						</div>
 					</div>
