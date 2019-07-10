@@ -29,6 +29,7 @@ class Newtweet extends Component {
 						this.setState({
 							hashtags: res.data
 						})
+						
 				this.selectHashtag(res.data[0]._id)
 				}).catch((err)=> {
 					console.log('err', err);
@@ -42,7 +43,7 @@ class Newtweet extends Component {
 				hashtag.active = true
 				this.setState({hashtags})
 				// console.log(this.state.channels);
-
+				console.log("pleaseagain", this.state.hashtags);
 				this.props.getTweets(id)
 			}
 
