@@ -9,14 +9,14 @@ class Maincontent extends Component {
 		hashtag: ''
 	}
 	//functions
-	getTweets = (id) => {
-			console.log('id', id);
-			this.setState({
-				hashtag: id
-			}, () => {
-				console.log('kkk', this.state.hashtag);
-			})
-		}
+	// getTweets = (id) => {
+	// 		console.log('id', id);
+	// 		this.setState({
+	// 			hashtag: id
+	// 		}, () => {
+	// 			console.log('kkk', this.state.hashtag);
+	// 		})
+	// 	}
 
 
 

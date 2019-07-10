@@ -16,7 +16,9 @@ class Trends extends Component {
 	//render
 	render() {
 		return (
-			<li onClick={()=> this.props.selectHashtag(this.state.hashtag._id)} className={ this.state.hashtag.active ? 'active' : '' }># {this.state.hashtag.name}</li>
+			<li>trend</li>
+			
+			// <li onClick={()=> this.props.selectHashtag(this.state.hashtag._id)} className={ this.state.hashtag.active ? 'active' : '' }># {this.state.hashtag.name}</li>
 		)
 	}
 }

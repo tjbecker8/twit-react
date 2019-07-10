@@ -62,7 +62,7 @@ class Newtweet extends Component {
 						<div id="hash">
 							<h4>Select a Hashtag</h4>
 							<ul className="list-unstyled">
-								<Trendsnewtweet />
+								<Trendsnewtweet selectHashtag={this.selectHashtag} />
 							</ul>
 						</div>
 						<div className="form-group purple-border">

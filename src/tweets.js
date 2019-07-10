@@ -15,7 +15,14 @@ class Tweets extends Component {
 			this.setState({
 				hashtag: id
 			}, () => {
-				console.log('kkk', this.state.hashtag);
+				axios.get(`http://localhost:4000/api/tweets?hashtag=${this.state.hashtag}`).then((res)=> {
+
+					this.setState({
+						tweets: res.data
+					})
+				}).catch((err)=> {
+					console.log('err', err);
+				})
 			})
 		}
 
@@ -31,20 +38,20 @@ class Tweets extends Component {
 			})
 		}
 
-		componentWillReceiveProps(props) {
-			console.log(props.hashtag);
-			this.setState({
-				hashtag: props.hashtag
-			})
-			axios.get(`http://localhost:4000/api/tweets?hashtag=${props.hashtag}`).then((res)=> {
+		// componentWillReceiveProps(props) {
+		// 	console.log(props.hashtag);
+		// 	this.setState({
+		// 		hashtag: props.hashtag
+		// 	})
+			// axios.get(`http://localhost:4000/api/tweets?hashtag=${this.state.hashtag}`).then((res)=> {
+			//
+			// 	this.setState({
+			// 		tweets: res.data
+			// 	})
+			// }).catch((err)=> {
+			// 	console.log('err', err);
+			// })
 
-				this.setState({
-					tweets: res.data
-				})
-			}).catch((err)=> {
-				console.log('err', err);
-			})
-		}
 
 		createTweet = (e, text) => {
 				e.preventDefault()
