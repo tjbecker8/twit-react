@@ -8,6 +8,7 @@ class Tweets extends Component {
 	state = {
 		tweets: [],
 		hashtag: '',
+		hashtags: ''
 	}
 	//functions
 	getTweets = (id) => {
@@ -16,15 +17,19 @@ class Tweets extends Component {
 				hashtag: id
 			}, () => {
 				axios.get(`http://localhost:4000/api/tweets?hashtag=${this.state.hashtag}`).then((res)=> {
-
 					this.setState({
 						tweets: res.data
 					})
+
 				}).catch((err)=> {
 					console.log('err', err);
 				})
 			})
 		}
+
+
+
+
 
 
 	componentWillMount() {
@@ -71,15 +76,27 @@ class Tweets extends Component {
 					})
 		}
 
+		selectHashtag = (id) => {
+			let hashtags = this.state.hashtags
+			hashtags.map((c)=> c.active = false)
+			let hashtag = hashtags.find((c) => c._id === id)
+			hashtag.active = true
+			this.setState({hashtags})
+			// console.log(this.state.channels);
+
+			this.props.getTweets(id)
+		}
+
 
 	//render
 	render() {
 		return (
 			<div id="tweets" className="col-6">
-				<Newtweet getTweets={this.getTweets} createTweet={this.createTweet} />
+				<Newtweet selectHashtag={this.selectHashtag} getTweets={this.getTweets} createTweet={this.createTweet} />
 				{
 						this.state.tweets.map((m)=> {
-							return <Tweet tweet={m} key={m._id} />
+							console.log('m', m.hashtag.name);
+							return <Tweet selectHashtag={this.selectHashtag} tweet={m} key={m._id} hashtag={m.hashtag.name} />
 						})
 					}
 

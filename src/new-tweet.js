@@ -29,23 +29,23 @@ class Newtweet extends Component {
 						this.setState({
 							hashtags: res.data
 						})
-						
-				this.selectHashtag(res.data[0]._id)
+
+				// this.selectHashtag(res.data[0]._id)
 				}).catch((err)=> {
 					console.log('err', err);
 				})
 			}
 
-			selectHashtag = (id) => {
-				let hashtags = this.state.hashtags
-				hashtags.map((c)=> c.active = false)
-				let hashtag = hashtags.find((c) => c._id === id)
-				hashtag.active = true
-				this.setState({hashtags})
-				// console.log(this.state.channels);
-				console.log("pleaseagain", this.state.hashtags);
-				this.props.getTweets(id)
-			}
+			// selectHashtag = (id) => {
+			// 	let hashtags = this.state.hashtags
+			// 	hashtags.map((c)=> c.active = false)
+			// 	let hashtag = hashtags.find((c) => c._id === id)
+			// 	hashtag.active = true
+			// 	this.setState({hashtags})
+			// 	// console.log(this.state.channels);
+			//
+			// 	this.props.getTweets(id)
+			// }
 
 
 
@@ -65,7 +65,7 @@ class Newtweet extends Component {
 							<ul className="list-unstyled">
 								{
 								this.state.hashtags.map((c) =>{
-									return	<Trendsnewtweet hashtag={c} key={c._id} selectHashtag={this.selectHashtag} />
+									return	<Trendsnewtweet hashtag={c} key={c._id} selectHashtag={this.props.selectHashtag} />
 								})
 							}
 							</ul>

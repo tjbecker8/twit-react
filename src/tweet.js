@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import moment from 'moment'
-
+import './tweets.css';
 
 class Tweet extends Component {
 	//data
 	state = {
-		tweet: this.props.tweet
+		tweet: this.props.tweet,
+		hashtag: this.props.hashtag
 	}
 
 
@@ -29,10 +30,10 @@ class Tweet extends Component {
 						<img src={this.props.tweet.author.image} className="card-img" alt="..." />
 					</div>
 					<div className="col-md-8">
-						<div className="card-body">
+						<div id="info" className="card-body">
 							<h5 className="card-title">{this.props.tweet.author.name}</h5>
 							<p className="card-text">{this.props.tweet.body}</p>
-							<p className="card-text">{this.props.hashtag}</p>
+							<p className="card-text hash" onClick={()=> this.props.selectHashtag(this.state.hashtag._id)} className={ this.state.hashtag.active ? 'active' : '' } > #{this.props.hashtag}</p>
 							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small></p>
 						</div>
 					</div>
