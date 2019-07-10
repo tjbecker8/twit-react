@@ -2,3 +2,8 @@
 	padding: 0;
 	margin: 0;
 }
+
+#hash ul {
+	padding-left: 20px;
+	padding-right: 20px;
+}

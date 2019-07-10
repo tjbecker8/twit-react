@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './tweets.css';
 
 
 class Newtweet extends Component {
@@ -34,7 +34,19 @@ class Newtweet extends Component {
 						this.clearTweet()}
 					}>
 					<div className="input-group mb-3">
-						<input type="text" className="form-control" placeholder="New Tweet" value={this.state.text} onChange={(e) => this.changeText(e)} />
+						<div id="hash">
+							<ul className="list-unstyled">
+								<li>#test</li>
+								<li>#test</li>
+								<li>#test</li>
+								<li>#test</li>
+								<li>#test</li>
+							</ul>
+						</div>
+						<div className="form-group purple-border">
+  				<textarea maxlength="140" className="form-control" id="exampleFormControlTextarea4" rows="5" value={this.state.text} onChange={(e) => this.changeText(e)}></textarea>
+					</div>
+
 						<div className="input-group-append">
 							<button className="btn btn-success" type="submit">Tweet</button>
 						</div>
