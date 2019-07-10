@@ -10,6 +10,15 @@ class Tweets extends Component {
 		hashtag: '',
 	}
 	//functions
+	getTweets = (id) => {
+			console.log('id', id);
+			this.setState({
+				hashtag: id
+			}, () => {
+				console.log('kkk', this.state.hashtag);
+			})
+		}
+
 
 	componentWillMount() {
 			axios.get('http://localhost:4000/api/tweets').then((res)=> {
@@ -60,7 +69,7 @@ class Tweets extends Component {
 	render() {
 		return (
 			<div id="tweets" className="col-6">
-				<Newtweet createTweet={this.createTweet} />
+				<Newtweet getTweets={this.getTweets} createTweet={this.createTweet} />
 				{
 						this.state.tweets.map((m)=> {
 							return <Tweet tweet={m} key={m._id} />

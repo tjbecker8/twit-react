@@ -23,7 +23,7 @@ class Rightsidebar extends Component {
 
 		selectHashtag = (id) => {
 			let hashtags = this.state.hashtags
-			hashtags.map((c)=> c.active = false) 
+			hashtags.map((c)=> c.active = false)
 			let hashtag = hashtags.find((c) => c._id === id)
 			hashtag.active = true
 			this.setState({hashtags})

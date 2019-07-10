@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import './tweets.css';
-
-
+import Trendsnewtweet from './trendsNewTweet'
+import axios from 'axios'
 class Newtweet extends Component {
 	//data
 	state = {
-		text: ''
+		text: '',
+		hashtags: []
 	}
 	//functions
 	changeText = (e) => {
@@ -21,6 +22,30 @@ class Newtweet extends Component {
 		}
 
 
+//for selecting hastags for new tweet
+		componentDidMount() {
+				axios.get(`http://localhost:4000/api/hashtag`).then((res)=> {
+						res.data[0].active = true
+						this.setState({
+							hashtags: res.data
+						})
+				this.selectHashtag(res.data[0]._id)
+				}).catch((err)=> {
+					console.log('err', err);
+				})
+			}
+
+			selectHashtag = (id) => {
+				let hashtags = this.state.hashtags
+				hashtags.map((c)=> c.active = false)
+				let hashtag = hashtags.find((c) => c._id === id)
+				hashtag.active = true
+				this.setState({hashtags})
+				// console.log(this.state.channels);
+
+				this.props.getTweets(id)
+			}
+
 
 
 
@@ -35,16 +60,13 @@ class Newtweet extends Component {
 					}>
 					<div className="input-group mb-3">
 						<div id="hash">
+							<h4>Select a Hashtag</h4>
 							<ul className="list-unstyled">
-								<li>#test</li>
-								<li>#test</li>
-								<li>#test</li>
-								<li>#test</li>
-								<li>#test</li>
+								<Trendsnewtweet />
 							</ul>
 						</div>
 						<div className="form-group purple-border">
-  				<textarea maxlength="140" className="form-control" id="exampleFormControlTextarea4" rows="5" value={this.state.text} onChange={(e) => this.changeText(e)}></textarea>
+  				<textarea maxLength="140" className="form-control" id="exampleFormControlTextarea4" rows="5" value={this.state.text} onChange={(e) => this.changeText(e)}></textarea>
 					</div>
 
 						<div className="input-group-append">
