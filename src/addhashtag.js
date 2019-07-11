@@ -1,13 +1,25 @@
 import React, {Component} from 'react';
 import './right-sidebar.css';
 
-
+// import axios from 'axios'
 class Addhashtag extends Component {
 	//data
 	state = {
-		hashtag: this.props.hashtag
+		text: '',
 	}
 	//functions
+	changeText = (e) => {
+			this.setState({
+				text: e.target.value
+			})
+		}
+
+		clearHashtag = () => {
+			this.setState({
+				text: ''
+			})
+		}
+
 
 
 
@@ -16,13 +28,16 @@ class Addhashtag extends Component {
 	//render
 	render() {
 		return (
-<form>
-			<div className="input-group mb-3">
-  			<input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+			<form onSubmit= {(e) => {
+					this.props.createHashtag(e, this.state.text);
+					this.clearHashtag()}
+				}>
+				<div className="input-group mb-3">
+  				# <input type="text" className="form-control" placeholder="hashtag" value={this.state.text} onChange={(e) => this.changeText(e)} />
   				<div className="input-group-append">
-    				<button className="btn btn-outline-secondary" type="button">Button</button>
+    				<button className="btn btn-outline-secondary" type="submit">Submit</button>
   				</div>
-			</div>
+				</div>
 			</form>
 
 		)

@@ -61,7 +61,7 @@ class Newtweet extends Component {
 					}>
 					<div className="input-group mb-3">
 						<div id="hash">
-							<h4>Write a hashtag</h4>
+							<h4>Select a hashtag</h4>
 							<ul className="list-unstyled">
 								{
 								this.state.hashtags.map((c) =>{

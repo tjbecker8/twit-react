@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './right-sidebar.css';
 import Addhashtag from './addhashtag'
-// import axios from 'axios'
+import axios from 'axios'
 
 class Rightsidebar extends Component {
 	//data
@@ -10,7 +10,20 @@ class Rightsidebar extends Component {
 	}
 	//functions
 
-
+	createHashtag = (e, text) => {
+			e.preventDefault()
+				let hashtag = {
+					name: text,
+				}
+				axios.post('http://localhost:4000/api/hashtag', hashtag, {headers: {
+					Authorization: `Bearer ${localStorage.getItem('token')}`
+				}}
+			).then((res)=> {
+					console.log('res', res);
+				}).catch((err)=> {
+					console.log('err', err);
+				})
+		}
 
 
 
@@ -25,8 +38,8 @@ class Rightsidebar extends Component {
 						<div className="card-body">
 						<h5 className="card-title">Add a Hashtag</h5>
 
-							<Addhashtag />
-						
+							<Addhashtag createHashtag={this.createHashtag} />
+
 					</div>
 
 					</div>
