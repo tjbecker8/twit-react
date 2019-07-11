@@ -65,35 +65,19 @@ class Tweets extends Component {
 			this.setState({
 				hashtag: id
 			})
-			// this.getTweets()
+			this.getTweets(id)
 		}
 
-
-		componentWillReceiveProps(props) {
-			console.log('hhhgg', props.hashtag);
-			this.setState({
-				hashtag: props.hashtag
-			})
-			axios.get(`http://localhost:4000/api/tweets?hashtag=${this.state.hashtag}`).then((res)=> {
-				this.setState({
-					tweets: res.data
-				})
-			}).catch((err)=> {
-				console.log('err', err);
-			})
-		}
-
-
-		// getTweets () {
-		// 			axios.get(`http://localhost:4000/api/tweets?hashtag=${this.state.hashtag}`).then((res)=> {
-		// 				console.log('uuu', res.data);
-		// 				this.setState({
-		// 					tweets: res.data
-		// 				})
-		// 			}).catch((err)=> {
-		// 				console.log('err', err);
-		// 			})
-		// 	}
+		getTweets (id) {
+					axios.get(`http://localhost:4000/api/tweets?hashtag=${id}`).then((res)=> {
+						console.log('res.data', res.data);
+						this.setState({
+							tweets: res.data
+						})
+					}).catch((err)=> {
+						console.log('err', err);
+					})
+			}
 
 
 	//render
@@ -103,7 +87,7 @@ class Tweets extends Component {
 				<Newtweet hashes={this.hashes} selectHashtag={this.selectHashtag} getTweets={this.getTweets} createTweet={this.createTweet} />
 				{
 						this.state.tweets.map((m)=> {
-							return <Tweet hashtags={this.state.hashtags} selectHashtag={this.selectHashtag} getTweets={this.getTweets} tweet={m} key={m._id} hashtag={m.hashtag} />
+							return <Tweet hashtags={this.state.hashtags} selectHashtag={this.selectHashtag} tweet={m} key={m._id} hashtag={m.hashtag} />
 						})
 					}
 

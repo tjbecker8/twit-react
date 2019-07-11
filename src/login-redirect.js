@@ -10,7 +10,7 @@ class LoginRedirect extends Component {
 	//functions
 
 	loginNavigate = (e) => {
-		
+		window.location = '/login'
  }
 
 
