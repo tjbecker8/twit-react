@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios'
+import LoginRedirect from './login-redirect'
 
 class Signup extends Component {
 	//data
@@ -65,7 +66,12 @@ signup =(e) => {
 						</div>
 					</div>
 				</div>
+				<div>
+					<h5>Already have and account?</h5>
+					<LoginRedirect />
+				</div>
 			</div>
+
 		)
 	}
 }

@@ -44,7 +44,7 @@ buildClass=()=>{
 						<div className="card-body">
 							<h5 className="card-title">{this.props.tweet.author.name}</h5>
 							<p className="card-text">{this.props.tweet.body}</p>
-							<p className={this.buildClass()} onClick={()=> this.props.selectHashtag(this.props.hashtag._id)} > #{this.props.hashtag.name}</p>
+							<p className={this.buildClass()} onClick={()=> this.props.selectHashtag(this.props.hashtag._id) } > #{this.props.hashtag.name}</p>
 							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small></p>
 						</div>
 					</div>
