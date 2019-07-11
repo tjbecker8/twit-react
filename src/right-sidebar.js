@@ -24,9 +24,9 @@ class Rightsidebar extends Component {
 
 						<div className="card-body">
 						<h5 className="card-title">Add a Hashtag</h5>
-						<ul className="list-unstyled">
+
 							<Addhashtag />
-						</ul>
+						
 					</div>
 
 					</div>
