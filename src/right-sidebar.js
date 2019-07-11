@@ -11,7 +11,7 @@ class Rightsidebar extends Component {
 	//functions
 
 	createHashtag = (e, text) => {
-			e.preventDefault()
+			// e.preventDefault()
 				let hashtag = {
 					name: text,
 				}
