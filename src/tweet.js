@@ -11,12 +11,22 @@ class Tweet extends Component {
 	}
 
 
-	functions
+	// functions
 	componentWillMount() {
 			let tweet = this.state.tweet
 			tweet.date = moment(tweet.date).format('D MMM YYYY - h:mma')
 			this.setState({tweet})
 		}
+
+buildClass=()=>{
+	 let a = 'hash '
+	if (this.props.hashtag.active ) {
+		return a += 'active'
+	} else {
+		return a
+	}
+}
+
 
 
 
@@ -31,10 +41,10 @@ class Tweet extends Component {
 						<img src={this.props.tweet.author.image} className="card-img" alt="..." />
 					</div>
 					<div className="col-md-8">
-						<div id="info" className="card-body">
+						<div className="card-body">
 							<h5 className="card-title">{this.props.tweet.author.name}</h5>
 							<p className="card-text">{this.props.tweet.body}</p>
-							<p className="card-text hash" onClick={()=> this.props.selectHashtag(this.props.hashtags._id)} className={ this.props.hashtags.active ? 'active' : '' } > #{this.props.hashtag}</p>
+							<p className={this.buildClass()} onClick={()=> this.props.selectHashtag(this.props.hashtag._id)} > #{this.props.hashtag.name}</p>
 							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small></p>
 						</div>
 					</div>

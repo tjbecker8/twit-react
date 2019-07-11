@@ -18,12 +18,12 @@
 	color: red;
 }
 
-#info .hash:hover {
+.hash:hover {
 	background: black;
 	color: red;
 }
 
-#info .hash.active {
+.hash.active {
 	background: black;
 	color: red;
 }

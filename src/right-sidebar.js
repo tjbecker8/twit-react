@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './right-sidebar.css';
-import Trends from './trends'
-import axios from 'axios'
+// import Trends from './trends'
+// import axios from 'axios'
 
 class Rightsidebar extends Component {
 	//data

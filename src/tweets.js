@@ -8,28 +8,14 @@ class Tweets extends Component {
 	state = {
 		tweets: [],
 		hashtag: '',
-		hashtags: '',
+		hashtags: [],
 
 	}
 	//functions
-	getTweets = (id) => {
-			console.log('id', id);
-			this.setState({
-				hashtag: id
-			}, () => {
-				axios.get(`http://localhost:4000/api/tweets?hashtag=${this.state.hashtag}`).then((res)=> {
-					this.setState({
-						tweets: res.data
-					})
-
-				}).catch((err)=> {
-					console.log('err', err);
-				})
-			})
-		}
 
 
 hashes =(h)=> {
+	console.log('h', h);
 	this.setState({
 		hashtags: h
 	})
@@ -62,35 +48,46 @@ hashes =(h)=> {
 			// 	console.log('err', err);
 			// })
 
-
-		createTweet = (e, text) => {
-				e.preventDefault()
-					let tweet = {
-						body: text,
-						hashtag: this.state.hashtag,
-					}
-					axios.post('http://localhost:4000/api/tweets', tweet, {headers: {
-						Authorization: `Bearer ${localStorage.getItem('token')}`
-					}}
-				).then((res)=> {
-						let tweets = this.state.tweets
-						tweets.push(res.data)
-						this.setState({tweets})
-					}).catch((err)=> {
-						console.log('err', err);
-					})
-		}
-
 		selectHashtag = (id) => {
+			console.log('id', id);
+			console.log('test', this.state.hashtags);
 			let hashtags = this.state.hashtags
 			hashtags.map((c)=> c.active = false)
 			let hashtag = hashtags.find((c) => c._id === id)
 			hashtag.active = true
 			this.setState({hashtags})
-			// console.log(this.state.channels);
-
-			this.props.getTweets(id)
+			this.setState({
+				hashtag: id
+			})
 		}
+
+		getTweets () {
+					axios.get(`http://localhost:4000/api/tweets?hashtag=${this.state.hashtag}`).then((res)=> {
+						this.setState({
+							tweets: res.data
+						})
+					}).catch((err)=> {
+						console.log('err', err);
+					})
+			}
+
+			createTweet = (e, text) => {
+					e.preventDefault()
+						let tweet = {
+							body: text,
+							hashtag: this.state.hashtag,
+						}
+						axios.post('http://localhost:4000/api/tweets', tweet, {headers: {
+							Authorization: `Bearer ${localStorage.getItem('token')}`
+						}}
+					).then((res)=> {
+							let tweets = this.state.tweets
+							tweets.push(res.data)
+							this.setState({tweets})
+						}).catch((err)=> {
+							console.log('err', err);
+						})
+			}
 
 
 	//render
@@ -100,8 +97,7 @@ hashes =(h)=> {
 				<Newtweet hashes={this.hashes} selectHashtag={this.selectHashtag} getTweets={this.getTweets} createTweet={this.createTweet} />
 				{
 						this.state.tweets.map((m)=> {
-							console.log('m', m.hashtag.name);
-							return <Tweet hashtags={this.state.hashtags} selectHashtag={this.selectHashtag} tweet={m} key={m._id} hashtag={m.hashtag.name} />
+							return <Tweet hashtags={this.state.hashtags} selectHashtag={this.selectHashtag} tweet={m} key={m._id} hashtag={m.hashtag} />
 						})
 					}
 

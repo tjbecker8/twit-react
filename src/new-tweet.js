@@ -25,12 +25,12 @@ class Newtweet extends Component {
 //for selecting hastags for new tweet
 		componentDidMount() {
 				axios.get(`http://localhost:4000/api/hashtag`).then((res)=> {
-						res.data[0].active = true
+						// res.data[0].active = true
 						this.setState({
 							hashtags: res.data
 						})
 						console.log('this', this.state.hashtags);
-			this.props.hashes(this.state.hashtags)
+						this.props.hashes(this.state.hashtags)
 				}).catch((err)=> {
 					console.log('err', err);
 				})
@@ -46,7 +46,7 @@ class Newtweet extends Component {
 			//
 			// 	this.props.getTweets(id)
 			// }
-		
+
 
 
 
