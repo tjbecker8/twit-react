@@ -1,7 +1,7 @@
 #header {
-	background-color: red;
-	display: grid;
-	grid-template-rows: 38px 317px 60px;
+	background-color: #e6ecf1;
+	/* display: grid;
+	grid-template-rows: 38px 317px 60px; */
 }
 
 #coverphoto {
@@ -9,4 +9,13 @@ background-image: url(https://res.cloudinary.com/dg3lfqtcg/image/upload/v1561701
 background-repeat: no-repeat;
 background-size: cover;
 
+}
+
+#navigate {
+	margin-top: 50px;
+}
+
+#navigate li {
+	padding-left: 10px;
+	padding-right: 10px;
 }

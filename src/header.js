@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Topnav from './topnav'
-import Coverphoto from './coverphoto'
-import Toplowernav from './toplowernav'
+// import Coverphoto from './coverphoto'
+// import Toplowernav from './toplowernav'
 import './header.css';
 
 class Header extends Component {
@@ -20,8 +20,6 @@ class Header extends Component {
 		return (
 			<div id="header">
 				<Topnav />
-				<Coverphoto />
-				<Toplowernav />
 			</div>
 		)
 	}

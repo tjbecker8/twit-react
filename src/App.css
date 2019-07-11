@@ -8,5 +8,5 @@ html, body {
 	background: #e6ecf0;
 	/* height: 100vh; */
 	display: grid;
-	grid-template-rows: 415px auto;
+	grid-template-rows: 185px auto;
 }
