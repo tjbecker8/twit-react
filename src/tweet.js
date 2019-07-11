@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import moment from 'moment'
 import './tweets.css';
-
+import Like from './like'
 class Tweet extends Component {
 	//data
 	state = {
@@ -45,7 +45,7 @@ buildClass=()=>{
 							<h5 className="card-title">{this.props.tweet.author.name}</h5>
 							<p className="card-text">{this.props.tweet.body}</p>
 							<p className={this.buildClass()} onClick={()=> this.props.selectHashtag(this.props.hashtag._id) } > #{this.props.hashtag.name}</p>
-							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small></p>
+							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small> <Like /> </p>
 						</div>
 					</div>
 				</div>
