@@ -19,7 +19,9 @@ class Newtweet extends Component {
 			this.setState({
 				text: ''
 			})
+			window.location.reload()
 		}
+
 
 
 //for selecting hastags for new tweet
