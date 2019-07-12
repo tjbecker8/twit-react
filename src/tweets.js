@@ -24,7 +24,7 @@ class Tweets extends Component {
 
 
 	componentWillMount() {
-			axios.get('http://localhost:4000/api/tweets').then((res)=> {
+			axios.get(`${process.env.REACT_APP_API}/api/tweets`).then((res)=> {
 				// console.log(res.data);
 				this.setState({
 					tweets: res.data
@@ -41,7 +41,7 @@ class Tweets extends Component {
 						body: text,
 						hashtag: this.state.hashtag,
 					}
-					axios.post('http://localhost:4000/api/tweets', tweet, {headers: {
+					axios.post(`${process.env.REACT_APP_API}/api/tweets`, tweet, {headers: {
 						Authorization: `Bearer ${localStorage.getItem('token')}`
 					}}
 				).then((res)=> {
@@ -69,7 +69,7 @@ class Tweets extends Component {
 		}
 
 		getTweets (id) {
-					axios.get(`http://localhost:4000/api/tweets?hashtag=${id}`).then((res)=> {
+					axios.get(`${process.env.REACT_APP_API}/api/tweets?hashtag=${id}`).then((res)=> {
 						console.log('res.data', res.data);
 						this.setState({
 							tweets: res.data

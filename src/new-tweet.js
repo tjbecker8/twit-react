@@ -24,7 +24,7 @@ class Newtweet extends Component {
 
 //for selecting hastags for new tweet
 		componentDidMount() {
-				axios.get(`http://localhost:4000/api/hashtag`).then((res)=> {
+				axios.get(`${process.env.REACT_APP_API}/api/hashtag`).then((res)=> {
 						// res.data[0].active = true
 						this.setState({
 							hashtags: res.data
