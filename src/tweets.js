@@ -25,7 +25,6 @@ class Tweets extends Component {
 
 	componentWillMount() {
 			axios.get(`${process.env.REACT_APP_API}/api/tweets`).then((res)=> {
-				// console.log(res.data);
 				this.setState({
 					tweets: res.data
 				})

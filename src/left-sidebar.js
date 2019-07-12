@@ -1,15 +1,24 @@
 import React, {Component} from 'react';
 import './left-sidebar.css';
 
-
+import axios from 'axios'
 class Leftsidebar extends Component {
 	//data
 	state = {
-
+		users: []
 	}
 	//functions
 
-
+	componentWillMount() {
+			axios.get(`${process.env.REACT_APP_API}/api/users`).then((res)=> {
+				console.log('users', res.data);
+				this.setState({
+					users: res.data
+				})
+			}).catch((err)=> {
+				console.log('err', err);
+			})
+		}
 
 
 
@@ -20,14 +29,8 @@ class Leftsidebar extends Component {
 			<div className="profile">
 				<div className="card" >
 					<div className="card-body profile">
-						<h5 className="card-title">Username</h5>
+						<h5 className="card-title">Welcome!</h5>
 						<h6 className="card-subtitle mb-2 text-muted">twitter handel</h6>
-						<p className="card-text">about me!</p>
-						<ul>
-							<li>location</li>
-							<li>website</li>
-							<li>date joined</li>
-						</ul>
 
 					</div>
 				</div>
