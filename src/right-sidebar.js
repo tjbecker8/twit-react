@@ -15,7 +15,7 @@ class Rightsidebar extends Component {
 				let hashtag = {
 					name: text,
 				}
-				axios.post('http://localhost:4000/api/hashtag', hashtag, {headers: {
+				axios.post(`${process.env.REACT_APP_API}/api/hashtag`, hashtag, {headers: {
 					Authorization: `Bearer ${localStorage.getItem('token')}`
 				}}
 			).then((res)=> {
