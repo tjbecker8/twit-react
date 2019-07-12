@@ -14,11 +14,12 @@ class Like extends Component {
     this.setState(prevState => {
        return {count: prevState.count + 1}
     })
-		console.log('id please', this.state.id);
+		console.log('count', this.state.count);
 		axios.patch(`http://localhost:4000/api/tweets/${this.state.id}`,{likes: this.state.count} , {headers: {
 			Authorization: `Bearer ${localStorage.getItem('token')}`
 		}}
 		).then((res)=> {
+			console.log('res', res.data);
 			let likes = this.state.count
 			this.setState({likes})
 		}).catch((err)=> {
