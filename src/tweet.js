@@ -7,7 +7,7 @@ class Tweet extends Component {
 	state = {
 		tweet: this.props.tweet,
 		hashtag: this.props.hashtag,
-		hashtags: this.props.hashtags
+		hashtags: this.props.hashtags,
 	}
 
 
@@ -45,7 +45,7 @@ buildClass=()=>{
 							<h5 className="card-title">{this.props.tweet.author.name}</h5>
 							<p className="card-text">{this.props.tweet.body}</p>
 							<p className={this.buildClass()} onClick={()=> this.props.selectHashtag(this.props.hashtag._id) } > #{this.props.hashtag.name}</p>
-							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small> <Like /> </p>
+							<p className="card-text"><small className="text-muted">{this.state.tweet.date}</small> <Like id={this.state.tweet._id} /> </p>
 						</div>
 					</div>
 				</div>
