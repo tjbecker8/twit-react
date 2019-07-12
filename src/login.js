@@ -60,7 +60,7 @@ login =(e) => {
 								<div className="error">{this.state.error}</div>
 								<button type="submit" className="btn btn-primary">Login</button>
 							</form>
-							<h3>need to signup? got to /signup</h3>
+							<h5>need to signup? go to /signup</h5>
 						</div>
 					</div>
 				</div>
